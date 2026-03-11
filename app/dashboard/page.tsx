@@ -19,10 +19,10 @@ async function getStats(supabase: any, clientSlug: string) {
       .from('canonical_events').select('*', { count: 'exact', head: true })
       .eq('client_slug', clientSlug).eq('event_type', 'chat.message').gte('occurred_at', weekAgo),
     supabase
-      .from('leads').select('*', { count: 'exact', head: true })
+      .from('restobar_1504_reservations').select('*', { count: 'exact', head: true })
       .eq('client_slug', clientSlug).gte('created_at', weekAgo),
     supabase
-      .from('leads').select('*')
+      .from('restobar_1504_reservations').select('*')
       .eq('client_slug', clientSlug).eq('status', 'pending')
       .order('created_at', { ascending: false }).limit(10),
     // Detailed page views for bar vs kitchen traffic analysis
