@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
   const supabase = createClient(supabaseUrl, serviceKey)
 
   const { data, error } = await supabase
-    .from('reservations')
+    .from('restobar_1504_reservations')
     .insert({ name, email, phone, party_size, date, time, notes, client_slug: '1504' })
     .select()
     .single()
